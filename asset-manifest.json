@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/Summary-Master/static/css/main.8a1040b8.css",
+    "main.js": "/Summary-Master/static/js/main.3dfe6ec7.js",
+    "static/js/592.868c80b3.chunk.js": "/Summary-Master/static/js/592.868c80b3.chunk.js",
+    "static/media/abcdef.gif": "/Summary-Master/static/media/abcdef.41d08dae7889daa6ffb3.gif",
+    "static/media/firefox.png": "/Summary-Master/static/media/firefox.5165956c99a81f3d94b1.png",
+    "static/media/footer2.png": "/Summary-Master/static/media/footer2.c69245a44d226b00f050.png",
+    "static/media/footer3.png": "/Summary-Master/static/media/footer3.6f7425dabe9eddaf7322.png",
+    "static/media/logo.png": "/Summary-Master/static/media/logo.a700b38a64d1c44b03db.png",
+    "static/media/chrome.png": "/Summary-Master/static/media/chrome.15bf1bccbfd2840c5979.png",
+    "static/media/student.png": "/Summary-Master/static/media/student.22e576a585ebae85cad2.png",
+    "static/media/footer1.png": "/Summary-Master/static/media/footer1.21a5e85a955e9bd0c8ac.png",
+    "static/media/institute.png": "/Summary-Master/static/media/institute.26f62400fa7d70dc7428.png",
+    "static/media/footer4.png": "/Summary-Master/static/media/footer4.c1420c08cd4f6ebfed18.png",
+    "static/media/teacher.png": "/Summary-Master/static/media/teacher.87e0d8575a9d1c61b562.png",
+    "static/media/search.png": "/Summary-Master/static/media/search.cadee8cdb0c0afb1a713.png",
+    "static/media/journalist.png": "/Summary-Master/static/media/journalist.ea55d98eee9ed99cbfe7.png",
+    "static/media/people.png": "/Summary-Master/static/media/people.db774d3e830f4c26dbb1.png",
+    "static/media/writer.png": "/Summary-Master/static/media/writer.1016d1a97fb84eb0ad43.png",
+    "static/media/paste.png": "/Summary-Master/static/media/paste.3ca26e27b9cbd31a648c.png",
+    "index.html": "/Summary-Master/index.html",
+    "main.8a1040b8.css.map": "/Summary-Master/static/css/main.8a1040b8.css.map",
+    "main.3dfe6ec7.js.map": "/Summary-Master/static/js/main.3dfe6ec7.js.map",
+    "592.868c80b3.chunk.js.map": "/Summary-Master/static/js/592.868c80b3.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8a1040b8.css",
+    "static/js/main.3dfe6ec7.js"
+  ]
+}
