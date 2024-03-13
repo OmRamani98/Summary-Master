@@ -16,7 +16,7 @@ const InputText = () => {
   const handleDataFromSummary = (isVisible, summary) => {
     
     setSummaryText(summary);
-    // setIsSummaryVisible(isVisible);
+    setIsSummaryVisible(isVisible);
   };
 
   const handleTextChange = (e) => {

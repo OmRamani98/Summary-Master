@@ -8,7 +8,7 @@ const DataFetcherText = ({ text, sliderValue, onFetchComplete }) => {
     const fetchData = async () => {
       console.log("summarize clicked");
       try {
-        const response = await fetch('http://localhost:5000/summary', {
+        const response = await fetch('https://one23-1-qmiy.onrender.com/summary', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -18,9 +18,11 @@ const DataFetcherText = ({ text, sliderValue, onFetchComplete }) => {
 
         if (response.ok) {
           const responseData = await response.json();
+          console.log("rsum",responseData.summary);
           onFetchComplete(responseData.summary);
           keyset=responseData.keywords;
-          console.log(keyset);
+           
+          console.log("Keyset",keyset);
           setKeyword(keyset);
           
         } else {
