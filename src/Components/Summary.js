@@ -29,6 +29,7 @@ const Summary = ({ content, contentType, onDataReceived }) => {
   };
 
   const handleFetchComplete = async (text) => {
+    console.log("at summary",text)
     setSummaryText(text);
     setIsSummaryVisible(true);
     onDataReceived(isSummaryVisible, summaryText);

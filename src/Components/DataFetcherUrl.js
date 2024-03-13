@@ -26,7 +26,8 @@ const DataFetcherUrl = ({ Url, sliderValue, onFetchComplete }) => {
     }
 
     try {
-      const response = await axios.post('http://localhost:5001/api/getTranscript', { youtubeUrl: videoId });
+      const response = await axios.post('https://summary-master-flask-url.onrender.com/getTranscript', { youtubeUrl: videoId });
+      console.log("tt",response.data.transcript);
       setTranscript(response.data.transcript);
     } catch (error) {
       console.error('Error fetching transcript:', error);
@@ -39,7 +40,7 @@ const DataFetcherUrl = ({ Url, sliderValue, onFetchComplete }) => {
 
   return (
     <DataFetcherText text={transcript} onFetchComplete={onFetchComplete} sliderValue={sliderValue} />
-  );
+    );
 };
 
 export default DataFetcherUrl;
