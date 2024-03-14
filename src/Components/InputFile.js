@@ -51,8 +51,8 @@ const InputFile = () => {
     }
     const files = event.target.files;
     if (files && files.length > 0) {
-      const file = event.target.files[0];
-      setFile(file);
+      const filei = event.target.files[0];
+      setFile(filei);
       setLoding(true);
       if (file) {
         const fileExtension = file.name.split(".").pop().toLowerCase();

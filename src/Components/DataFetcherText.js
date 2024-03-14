@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect ,useState} from "react";
 
 
 let keyset;
@@ -7,7 +7,7 @@ const DataFetcherText = ({ text, sliderValue, onFetchComplete }) => {
     const fetchData = async () => {
       console.log("summarize clicked");
       try {
-        const response = await fetch('https://one23-1-qmiy.onrender.com/summary', {
+        const response = await fetch('https://summary-master-flask-text.onrender.com', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

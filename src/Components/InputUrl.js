@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import axios from "axios";
 import PasteBtn from "./PasteBtn";
 import Summary from './Summary'
@@ -8,11 +8,9 @@ import './styles/myStyles.css';
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 
-
-
 const InputUrl = () => {
 
-  const [isSummaryVisible, setIsSummaryVisible] = useState(false);
+  // const [isSummaryVisible, setIsSummaryVisible] = useState(false);
 
   const [url, setUrl] = useState("");
   const [videoId, setVideoId] = useState("");
@@ -22,7 +20,7 @@ const InputUrl = () => {
   const [summaryText, setSummaryText] = useState('');
   const[loading,setLoding]=useState(false);
   const handleDataFromSummary = (Visible, Summary) => {
-    setIsSummaryVisible(Visible);
+    // setIsSummaryVisible(Visible);
     setSummaryText(Summary);
   };
 
@@ -56,7 +54,6 @@ const InputUrl = () => {
         `https://www.googleapis.com/youtube/v3/channels?id=${channelId}&part=snippet&key=AIzaSyCZGkQI8NTYXA9wI5uhy0VC-qjRvsKH3WM`
       );
       console.log("Channel API Response:", response.data);
-
       if (response.data.items && response.data.items.length > 0) {
         setChannelInfo(response.data.items[0].snippet);
       }

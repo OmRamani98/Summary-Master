@@ -16,7 +16,7 @@ const RelatedVideos = () => {
         
         params: {
           part: 'snippet',
-          q: keywords.join(' '), // Concatenate keywords into a search query
+          q: keywords.join(' '), 
           type: 'video',
           key: 'AIzaSyCZGkQI8NTYXA9wI5uhy0VC-qjRvsKH3WM',
         },
@@ -28,33 +28,18 @@ const RelatedVideos = () => {
     }
   };
   useEffect(() => {
-    handleSearch(); // Call handleSearch when component mounts
+    handleSearch(); 
   }, [keyset]);
   return (
-  //   <div>
-        
-  //     <h2 style={{color:"white",fontSize:'30px',fontWeight:"bold",marginLeft:"10vw"}}>Related Videos</h2>
-  //     <div className="related-videos-container" style={{display:"flex",width:"80vw"}}>
-  //     {videos.map((video) => (
-  // <div className="related-video" key={video.id.videoId}>
-  //   <iframe
-  //     width="100%" // Adjusted width
-  //     height="315" // Adjusted height (you can adjust this according to your needs)
-  //     src={`https://www.youtube.com/embed/${video.id.videoId}`}
-  //     title={video.snippet.title}
-  //     frameBorder="0"
-  //     allowFullScreen   
-  //   />
-  // </div>
-  <div>
+   <div>
         <center>
       <h2 style={{color:"white",fontSize:'30px',fontWeight:"bold"}}>Content Related Videos :</h2>
       </center><div className="video-gallery">
       {videos.map((video) => (
   <div className="video" key={video.id.videoId}>
     <iframe
-      width="110%" // Adjusted width
-      height="110%" // Adjusted height (you can adjust this according to your needs)
+      width="110%" 
+      height="110%" 
       src={`https://www.youtube.com/embed/${video.id.videoId}`}
       title={video.snippet.title}
       frameBorder="0"
