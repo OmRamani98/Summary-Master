@@ -7,7 +7,7 @@ const DataFetcherText = ({ text, sliderValue, onFetchComplete }) => {
     const fetchData = async () => {
       console.log("summarize clicked");
       try {
-        const response = await fetch('https://summary-master-flask-text.onrender.com', {
+        const response = await fetch('https://summary-master-flask-text.onrender.com/summary', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
