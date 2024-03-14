@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../Components/styles/myStyles.css'; // Import CSS file for styling
-import { Style } from '@mui/icons-material';
+
 
 const FAQItem = ({ question, answer, isOpen, toggleOpen }) => {
   return (
