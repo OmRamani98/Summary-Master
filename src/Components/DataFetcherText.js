@@ -1,7 +1,9 @@
 import React, { useEffect ,useState} from "react";
-const DataFetcherText = ({ text, sliderValue, onFetchComplete }) => {
+import Keywords from "./keyword";
 
-  useEffect(() => {
+let keyset;
+const DataFetcherText = ({ text, sliderValue, onFetchComplete }) => {
+    useEffect(() => {
     const fetchData = async () => {
       console.log("summarize clicked");
       try {
@@ -17,7 +19,11 @@ const DataFetcherText = ({ text, sliderValue, onFetchComplete }) => {
           const responseData = await response.json();
           console.log("rsum",responseData.summary);
           onFetchComplete(responseData.summary);
-                   
+          keyset=responseData.keywords;
+           
+          console.log("Keyset",keyset);
+          
+          
         } else {
           console.error('Server responded with an error');
         }
