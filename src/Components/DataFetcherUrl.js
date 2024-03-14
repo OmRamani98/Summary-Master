@@ -37,7 +37,7 @@ const DataFetcherUrl = ({ Url, sliderValue, onFetchComplete }) => {
 
     fetchData();
 
-  }, [Url]);
+  }, [Url,transcript]);
 
   return (<>
 
