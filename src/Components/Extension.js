@@ -1,19 +1,17 @@
-import React from 'react'
-import './styles/myStyles.css'
-import firefox from './images/firefox.png'
-import chrome from './images/chrome.png'
+import React from 'react';
+import './styles/myStyles.css';
+import firefox from './images/firefox.png';
+import chrome from './images/chrome.png';
 
 export default function Extensions() {
     return (
-        <>
-
         <div className='extension-container'>
             <div className='ex-header'>Browser Extensions</div>
-            <div className='ex-desc'>Use Summary Master browser extensions to summarize any webpage in click.</div>
+            <div className='ex-desc'>Use Summary Master browser extensions to summarize any webpage in a click.</div>
             <div className='ex-button'>
                 <div className='button1'>
-                    <a>
-                        <img src={chrome} alt='chrome'></img>
+                    <a href="https://chrome.google.com/webstore" target="_blank" rel="noopener noreferrer">
+                        <img src={chrome} alt='chrome' />
                         <div>
                             <div className='button1-inner1'>
                                 Available in the
@@ -25,8 +23,8 @@ export default function Extensions() {
                     </a>
                 </div>
                 <div className='button2'>
-                    <a>
-                        <img src={firefox} alt='firefox'></img>
+                    <a href="https://addons.mozilla.org" target="_blank" rel="noopener noreferrer">
+                        <img src={firefox} alt='firefox' />
                         <div>
                             <div className='button2-inner1'>
                                 Firefox Browser
@@ -39,6 +37,5 @@ export default function Extensions() {
                 </div>
             </div>
         </div>
-        </>
-    )
+    );
 }
