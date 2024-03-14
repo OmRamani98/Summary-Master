@@ -1,25 +1,16 @@
-// App.js
 import React, { useState } from "react";
-import FileSection from "./FileSection";
-import TextSection from "./TextSection";
+import FileSection from "./FileSection.js";
+import TextSection from "./TextSection.js";
 import UrlSection from "./UrlSection.js";
-import Nav from './nav';
+import Nav from './nav.js';
 import Textchange from './TextChanger.js';
 import Footer from "./Footer.js";
 import FAQ from "./FAQ.js";
 import ChromeExtension from "./Extension.js";
 import Ft from './Ft.js';
 
-
-
-const App = () => {
-  const [action,setAction] = useState("");
-  const handleUrl = ()=>{
-      setAction("1");
-  }
-  const handleText = ()=>{
-      setAction("2");
-  }
+const Home = () => {
+  
   const [selectedOption, setSelectedOption] = useState(null);
 
   const handleOptionChange = (option) => {
@@ -102,4 +93,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Home;

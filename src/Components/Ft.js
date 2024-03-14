@@ -14,16 +14,16 @@ const Footer = ({ scrollToComponent }) => {
           <div className="custom-footer-links">
           <ui>
             <li>
-            <a onClick={() => scrollToComponent("summarize")}>SummarizeNow</a>
+            <a href="#" onClick={() => scrollToComponent("summarize")}>SummarizeNow</a>
             </li>
             <li>
-            <a onClick={() => scrollToComponent("extensions")}>Extensions</a>
+            <a href="#" onClick={() => scrollToComponent("extensions")}>Extensions</a>
             </li>
             <li>
-            <a onClick={() => scrollToComponent("features")}>Features</a>
+            <a href="#" onClick={() => scrollToComponent("features")}>Features</a>
             </li>
             <li>
-            <a onClick={() => scrollToComponent("faq")}>FAQs</a>
+            <a href="#" onClick={() => scrollToComponent("faq")}>FAQs</a>
             </li>
           </ui>
           </div>

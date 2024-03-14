@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import SummarizeBtn from "./SummarizeBtn";
-import RangeSlider from "./RangeSlider";
 import { useSelector } from "react-redux";
 import DataFetcherText from "./DataFetcherText";
 import DataFetcherUrl from "./DataFetcherUrl";
