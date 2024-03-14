@@ -1,5 +1,5 @@
-import React, { useEffect ,useState} from "react";
-import Keywords from "./keyword";
+import React, { useEffect } from "react";
+
 
 let keyset;
 const DataFetcherText = ({ text, sliderValue, onFetchComplete }) => {
