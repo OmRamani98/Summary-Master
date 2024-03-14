@@ -26,12 +26,12 @@ export default function Footer() {
                         <div className='ft-desc'>In the sheer amount of information that bombards Internet users from all sides, hardly anyone wants to devote their valuable time to reading long texts. Summary Master's clever AI analyzes any piece of text and summarizes it automatically, in a way that makes it easy for you to read, understand and act on.</div>
                     </div>
                     <div className='footer1-right'>
-                        <img src={footer1} alt='footer1'></img>
+                        <img src={footer1} alt=''></img>
                     </div>
                 </div>
                 <div className='footer2'>
                     <div className='footer2-left'>
-                        <img src={footer2} alt='footer2'></img>
+                        <img src={footer2} alt=''></img>
                     </div>
                     <div className='footer2-right'>
                         <div className='footer-blue'>Essentials Unveiled: Metadata Extraction Simplified</div>
@@ -51,12 +51,12 @@ export default function Footer() {
                         <div className='ft-desc'>As an efficient article summarizer tool, Summary Master meticulously eliminates ads, popups, graphics, and other online distractions, providing you with a clean, uncluttered reading experience. Moreover, it enhances your focus and comprehension by presenting the essential content in a concise and straightforward manner, thus transforming the way you consume information online.</div>
                     </div>
                     <div className='footer1-right'>
-                        <img src={footer3} alt='footer3'></img>
+                        <img src={footer3} alt=''></img>
                     </div>
                 </div>
                 <div className='footer2'>
                     <div className='footer2-left'>
-                        <img src={footer4} alt='footer4'></img>
+                        <img src={footer4} alt=''></img>
                     </div>
                     <div className='footer2-right'>
                         <div className='footer-blue'>Dodge the Distraction, Embrace the Essence</div>
@@ -76,35 +76,35 @@ export default function Footer() {
                 <center><div style={{color:"rgb(155, 162, 160)",marginLeft:"30vw",marginRight:"30vw",marginBottom:"9vh"}}>Summary Master is a summarizing tool desingned for students, writers, teachers, institutions, journalists,and any internet user who needs to quickly understand the essence of lengthy content</div></center>
                 <div style={{display:"flex",marginBottom:"9vh",marginLeft:"16vw"}}>
                     <div style={{display:"flex",flexDirection:"column",width:"20vw",marginRight:"3vw"}}>
-                        <center><div><img src={people} style={{width:'3.6vw',hieght:'7vh'}}></img></div></center>
+                        <center><div><img src={people} alt='' style={{width:'3.6vw',hieght:'7vh'}}></img></div></center>
                         <center><div style={{color:'white',fontSize:'24px',fontWeight:'bold'}}>Anyone with access</div>
                         <div style={{color:'white',fontSize:'24px',fontWeight:'bold'}}>to the Internet</div></center>
                         <center><div style={{color:"rgb(155, 162, 160)"}}>Summary Master is for anyone who just needs to get the gist of a long article. You can read this summary, then go read the original article if you want to.</div></center>
                     </div>
                     <div style={{display:"flex",flexDirection:"column",width:"20vw",marginRight:"3vw"}}>
-                        <center><div><img src={student} style={{width:'3.6vw',hieght:'7vh'}}></img></div>
+                        <center><div><img src={student} alt='' style={{width:'3.6vw',hieght:'7vh'}}></img></div>
                         <div style={{color:'white',fontSize:'24px',fontWeight:'bold'}}>Students</div>
                         <div style={{color:"rgb(155, 162, 160)"}}>Summary Master is for students studying for exams, who are overwhelmed by information overload. This tool will help them summarize information into a concise, easy to digest piece of text.</div></center>
                     </div>
                     <div style={{display:"flex",flexDirection:"column",width:"20vw"}}>
-                        <center><div><img src={writer} style={{width:'3.6vw',hieght:'7vh'}}></img></div>
+                        <center><div><img src={writer} alt='' style={{width:'3.6vw',hieght:'7vh'}}></img></div>
                         <div style={{color:'white',fontSize:'24px',fontWeight:'bold'}}>Writers</div>
                         <div style={{color:"rgb(155, 162, 160)"}}>Summary Master is for anyone who writes frequently, and wants to quickly summarize their articles for easier writing and easier reading.</div></center>
                     </div>
                 </div>
                 <center><div style={{display:"flex",marginBottom:"9vh",marginLeft:"16vw"}}>
                     <div style={{display:"flex",flexDirection:"column",width:"20vw",marginRight:"3vw"}}>
-                        <center><div><img src={teacher} style={{width:'3.6vw',hieght:'7vh'}}></img></div>
+                        <center><div><img src={teacher} alt='' style={{width:'3.6vw',hieght:'7vh'}}></img></div>
                         <div style={{color:'white',fontSize:'24px',fontWeight:'bold'}}>Teachers</div>
                         <div style={{color:"rgb(155, 162, 160)"}}>Summary Master is for teachers who want to summarize a long document or chapter for their students.</div></center>
                     </div>
                     <div style={{display:"flex",flexDirection:"column",width:"20vw",marginRight:"3vw"}}>
-                        <center><div><img src={institute} style={{width:'3.6vw',hieght:'7vh'}}></img></div>
+                        <center><div><img src={institute}alt='' style={{width:'3.6vw',hieght:'7vh'}}></img></div>
                         <div style={{color:'white',fontSize:'24px',fontWeight:'bold'}}>Institutions</div>
                         <div style={{color:"rgb(155, 162, 160)"}}>Summary Master is for corporations and institutions who want to condense a piece of content into a summary that is easy to digest for their employees/students.</div></center>
                     </div>
                     <div style={{display:"flex",flexDirection:"column",width:"20vw"}}>
-                        <center><div><img src={journalist} style={{width:'3.6vw',hieght:'7vh'}}></img></div>
+                        <center><div><img src={journalist}alt='' style={{width:'3.6vw',hieght:'7vh'}}></img></div>
                         <div style={{color:'white',fontSize:'24px',fontWeight:'bold'}}>Journalists</div>
                         <div style={{color:"rgb(155, 162, 160)"}}>Summary Master is for journalists who need to summarize a long article for their newspaper or magazine.</div></center>
                     </div>
