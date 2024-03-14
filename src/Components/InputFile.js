@@ -40,6 +40,7 @@ const InputFile = () => {
     event.preventDefault();
     const droppedFile = event.dataTransfer.files[0];
     setFile(droppedFile);
+    console.log(file);
     handleFileChange({ target: { files: [droppedFile] } });
     setDrag(true);
     

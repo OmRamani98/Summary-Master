@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import FileSection from "./FileSection.js";
-import TextSection from "./TextSection.js";
-import UrlSection from "./UrlSection.js";
+import InputFile from "./InputFile";
+import InputUrl from "./InputUrl.js";
+import InputText from "./InputText.js";
 import Nav from './nav.js';
 import Textchange from './TextChanger.js';
 import Footer from "./Footer.js";
@@ -66,9 +66,9 @@ const Home = () => {
         <button onClick={() => handleOptionChange("url")}>Add URL</button>
         <button onClick={() => handleOptionChange("text")}>Add text</button>
       </div></center>
-      {selectedOption === "file" && <FileSection />}
-      {selectedOption === "text" && <TextSection />}
-      {selectedOption === "url" && <UrlSection />}
+      {selectedOption === "file" && <InputFile />}
+      {selectedOption === "text" && <InputText />}
+      {selectedOption === "url" && <InputUrl />}
       <div className='custom-divider'></div>
       
     </div>
