@@ -88,7 +88,7 @@ const InputFile = () => {
             const formData = new FormData();
             formData.append('audioFile', file);
             console.log("called");
-            const response = await axios.post('http://localhost:8000/upload-audio', formData, {
+            const response = await axios.post('https://summary-master-node-audio.onrender.com/upload-audio', formData, {
               headers: {
                 'Content-Type': 'multipart/form-data'
               }
