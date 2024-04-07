@@ -23,7 +23,7 @@ export default function Extensions() {
                     </a>
                 </div>
                 <div className='button2'>
-                    <a href="https://addons.mozilla.org" target="_blank" rel="noopener noreferrer">
+                    <a style={{color:"whitesmoke"}} href="https://addons.mozilla.org" target="_blank" rel="noopener noreferrer">
                         <img src={firefox} alt='firefox' />
                         <div>
                             <div className='button2-inner1'>

@@ -5,12 +5,6 @@ import './styles/myStyles.css';
 function CopyBtn({ valueToCopy }) {
   const copyToClipboard = () => {
     navigator.clipboard.writeText(valueToCopy);
-    if ('speechSynthesis' in window) {
-      const utterance = new SpeechSynthesisUtterance(valueToCopy);
-      window.speechSynthesis.speak(utterance);
-    } else {
-      console.error('Speech synthesis not supported in this browser');
-    }
   };
 
   return (
@@ -22,5 +16,3 @@ function CopyBtn({ valueToCopy }) {
 }
 
 export default CopyBtn;
-
-

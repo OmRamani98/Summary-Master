@@ -19,7 +19,7 @@ const InputFile = () => {
   const [drag, setDrag] = useState(true);
   const [summaryText, setSummaryText] = useState('');
   const [isFileText, setIsFileText] = useState(false);
-  const[loading,setLoding]=useState(false);
+  const [loading, setLoding] = useState(false);
   const handleDataFromSummary = (Visible, Summary) => {
     setIsSummaryVisible(Visible);
     setSummaryText(Summary);
@@ -43,7 +43,9 @@ const InputFile = () => {
     console.log(file);
     handleFileChange({ target: { files: [droppedFile] } });
     setDrag(true);
-    
+    setIsFileText(false);
+    setSummaryText(null);
+
   };
   const handleFileChange = async (event) => {
     
@@ -88,33 +90,36 @@ const InputFile = () => {
           try {
             const formData = new FormData();
             formData.append('audioFile', file);
-            console.log("called");
-            const response = await axios.post('https://summary-master-node-audio.onrender.com/upload-audio', formData, {
-              headers: {
-                'Content-Type': 'multipart/form-data'
-              }
+            //http://localhost:8000/upload-audio
+            const response = await fetch('https://summary-master-node-audio.onrender.com/upload-audio', {
+              method: 'POST',
+              body: formData
             });
-            console.log("called11");
 
-            setText(response.data.textContent.replace(/(\r\n|\n|\r)/gm,""));
+            if (!response.ok) {
+              throw new Error('Failed to upload audio');
+            }
+
+            const responseData = await response.json();
+            setText(responseData.textContent.replace(/(\r\n|\n|\r)/gm, ""));
             setIsFileText(true);
             setLoding(false);
           } catch (error) {
             console.error('Error uploading and extracting text:', error);
-
           }
         }
         else if (fileExtension === "mp4") {
           try {
             const formData = new FormData();
             formData.append('videoFile', file);
-            const response = await axios.post('http://localhost:8001/upload', formData, {
+            //https://summary-master-node-video.onrender.com/upload-video
+            const response = await axios.post('http://localhost:8001/upload-video', formData, {
               headers: {
                 'Content-Type': 'multipart/form-data'
               }
             });
-            
-            setText(response.data.textContent.replace(/(\r\n|\n|\r)/gm,""));
+
+            setText(response.data.textContent.replace(/(\r\n|\n|\r)/gm, ""));
             setIsFileText(true);
             setLoding(false);
 
@@ -125,18 +130,18 @@ const InputFile = () => {
         }
         else if (fileExtension === "jpg" || fileExtension === "jpeg" || fileExtension === "png" || fileExtension === "bmp" || fileExtension === "gif" || fileExtension === "tiff") {
           const reader = new FileReader();
-  
+
           reader.onload = async () => {
             const { data: { text } } = await Tesseract.recognize(
               reader.result,
               'eng', // language
               { logger: (m) => console.log(m) } // optional logger
             );
-            setText(text.replace(/(\r\n|\n|\r)/gm,""));
+            setText(text.replace(/(\r\n|\n|\r)/gm, ""));
             setIsFileText(true);
             setLoding(false);
           };
-  
+
           reader.readAsDataURL(file);
         }
         else {
@@ -148,13 +153,13 @@ const InputFile = () => {
 
   return (
     <>
-    <Backdrop
-  sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-  open={loading}
-  
->
-  <CircularProgress color="inherit" />
-</Backdrop>
+      <Backdrop
+        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={loading}
+
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
       <center>
 
         <div className="fileupload-dashed" style={{ height: '26vh', width: '30vw' }} onDragOver={handleDragOver}

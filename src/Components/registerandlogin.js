@@ -81,7 +81,7 @@ const DoubleSliderSignInUpForm = () => {
               </div>
               <span className="spanclass" style={{color:"white"}}>or use your email for registration</span>
               <input className="inputclass" style={{borderRadius:"7px"}} name="email" placeholder="Email" />
-              <input className="inputclass" style={{borderRadius:"7px"}} name="password" type="text" placeholder="Password" />
+              <input className="inputclass" style={{borderRadius:"7px"}} name="password" type="password" placeholder="Password" />
               <br/>
               <button className="buttonl">Sign Up</button>
             </form>
@@ -101,7 +101,7 @@ const DoubleSliderSignInUpForm = () => {
               </div>
               <span  className="spanclass" style={{color:"white"}}>or use your account</span>
               <input className="inputclass" style={{borderRadius:"7px"}} name="email" placeholder="Email" />
-              <input className="inputclass" style={{borderRadius:"7px"}} name="password" type="text" placeholder="Password" />
+              <input className="inputclass" style={{borderRadius:"7px"}} name="password" type="password" placeholder="Password" />
               <a onClick={handleReset} style={{color:"white"}} className="aclass">Forgot Password?</a>
               <button className="buttonl">Sign In</button>
             </form>

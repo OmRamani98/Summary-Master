@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 
 let keyset;
 const DataFetcherText = ({ text, sliderValue, onFetchComplete }) => {
+  console.log("text:",text);
     useEffect(() => {
     const fetchData = async () => {
       console.log("summarize clicked");

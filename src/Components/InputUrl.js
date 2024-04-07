@@ -35,7 +35,7 @@ const InputUrl = () => {
   const fetchVideoInfo = async (videoId) => {
     try {
       const response = await axios.get(
-        `https://www.googleapis.com/youtube/v3/videos?id=${videoId}&part=snippet&key=AIzaSyCZGkQI8NTYXA9wI5uhy0VC-qjRvsKH3WM `
+        `https://www.googleapis.com/youtube/v3/videos?id=${videoId}&part=snippet&key=AIzaSyALVM73q7e3p5GJHBzHi55eQRY-mnOvk-Y `
       );
 
       if (response.data.items && response.data.items.length > 0) {
@@ -51,7 +51,7 @@ const InputUrl = () => {
   const fetchChannelInfo = async (channelId) => {
     try {
       const response = await axios.get(
-        `https://www.googleapis.com/youtube/v3/channels?id=${channelId}&part=snippet&key=AIzaSyCZGkQI8NTYXA9wI5uhy0VC-qjRvsKH3WM`
+        `https://www.googleapis.com/youtube/v3/channels?id=${channelId}&part=snippet&key=AIzaSyALVM73q7e3p5GJHBzHi55eQRY-mnOvk-Y`
       );
       console.log("Channel API Response:", response.data);
       if (response.data.items && response.data.items.length > 0) {
@@ -146,7 +146,7 @@ const InputUrl = () => {
             <center><RangeSlider /></center>
             </div>
             <Summary contentType="url" content={url} onDataReceived={handleDataFromSummary} />
-             <RelatedVideos />
+             {summaryText && <RelatedVideos />}
 
             {url &&<> <div className='custom-divider'></div>
             <center><div style={{color:"white",width:"70vw"}}>

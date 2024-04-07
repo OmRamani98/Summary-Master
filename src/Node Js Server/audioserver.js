@@ -1,116 +1,83 @@
 const express = require('express');
 const multer = require('multer');
-const fs = require('fs');
+const { Storage } = require('@google-cloud/storage');
 const { SpeechClient } = require('@google-cloud/speech').v1;
+const fs = require('fs');
 const path = require('path');
 
 const app = express();
-const port = 8000;
+const port = process.env.PORT || 8000;
 
-// Enable CORS for requests from the React app
-const cors = require('cors');
-app.use(cors({
-  origin: 'http://localhost:3000' // Replace with your React app's origin
-}));
-
-// Configure multer for handling file uploads
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    const uploadDir = path.join(__dirname, 'uploads');
-    if (!fs.existsSync(uploadDir)) {
-      fs.mkdirSync(uploadDir, { recursive: true });
-    }
-    cb(null, uploadDir);
-  },
-  filename: (req, file, cb) => {
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-    // Generate a dynamic filename with a unique suffix
-    cb(null, uniqueSuffix + '-' + file.originalname);
-  }
-});
+const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-// Function to split audio into 1-second segments
-const splitAudioIntoSegments = async (filePath) => {
-  const audioSegments = [];
+const storageClient = new Storage({
+  keyFilename: 'cloude-e:\FSD\exp3\exp3\src\cloude-storage.jsonstorage.json'
+});
 
-  // Read the audio file
-  const audioData = fs.readFileSync(filePath);
-  const audioLength = audioData.length;
+const bucketName = 'summary-master'; // Replace with your bucket name
+
+const splitAudioIntoSegments = async (audioBuffer) => {
+  const audioSegments = [];
   const segmentSize = 16000 * 2; // Assuming 16-bit audio at 16 kHz (1-second segment)
 
-  // Split the audio into segments
-  for (let i = 0; i < audioLength; i += segmentSize) {
-    const segment = audioData.slice(i, i + segmentSize);
+  for (let i = 0; i < audioBuffer.length; i += segmentSize) {
+    const segment = audioBuffer.slice(i, i + segmentSize);
     audioSegments.push(segment);
   }
 
   return audioSegments;
 };
 
-// Function to get file extension
 const getFileExtension = (filename) => {
   return filename.split('.').pop().toLowerCase();
 };
 
-// POST endpoint for handling audio file upload and text extraction
 app.post('/upload-audio', upload.single('audioFile'), async (req, res) => {
-  const { path } = req.file;
-
   try {
-    // Create a Speech-to-Text client
-    const client = new SpeechClient({
-      keyFilename: 'speech-to-text.json' // Replace with your Google Cloud service account key file path
-    });
-
-    // Split the audio into 1-second segments
-    const audioSegments = await splitAudioIntoSegments(path);
-
-    // Define recognition config
-    let config = {
-      sampleRateHertz: 16000,
-      languageCode: 'en-US',
-      enableAutomaticPunctuation: true
-    };
-
-    // Detect file extension and set encoding accordingly
-    const fileExtension = getFileExtension(req.file.originalname);
-    if (fileExtension === 'mp3') {
-      config.encoding = 'MP3';
-    } else if (fileExtension === 'wav') {
-      config.encoding = 'LINEAR16';
-    } // Add more cases as needed for other audio formats
-
-    const transcriptions = [];
-
-    // Recognize speech for each segment
-    for (const segment of audioSegments) {
-      const audio = {
-        content: segment
-      };
-
-      const [response] = await client.recognize({
-        audio: audio,
-        config: config
-      });
-
-      const transcription = response.results
-        .map(result => result.alternatives[0].transcript)
-        .join('\n');
-
-      transcriptions.push(transcription);
+    const file = req.file;
+    if (!file) {
+      return res.status(400).send('No file uploaded.');
     }
 
-    // Join transcriptions from all segments
-    const fullTranscription = transcriptions.join('\n');
+    const bucket = storageClient.bucket(bucketName);
+    const fileName = `${Date.now()}-${file.originalname}`;
+    const blob = bucket.file(fileName);
 
-    res.json({ textContent: fullTranscription });
+    const blobStream = blob.createWriteStream();
+    blobStream.on('error', (err) => {
+      console.error(err);
+      res.status(500).json({ error: 'Failed to upload file.' });
+    });
+
+    blobStream.on('finish', async () => {
+      const audioFileURL = `gs://${bucketName}/${fileName}`;
+      const client = new SpeechClient({
+        keyFilename: 'speech-to-text.json'
+      });
+      
+
+      const [response] = await client.recognize({
+        audio: { uri: audioFileURL },
+        config: {
+          encoding: 'LINEAR16',
+          sampleRateHertz: 16000,
+          languageCode: 'en-US',
+          enableAutomaticPunctuation: true
+        },
+      });
+
+      const transcriptions = response.results.map(result => result.alternatives[0].transcript).join('\n');
+      res.json({ textContent: transcriptions });
+
+      // Delete the temporary uploaded file
+      blob.delete().catch(console.error);
+    });
+
+    blobStream.end(file.buffer);
   } catch (error) {
-    console.error('Error extracting text:', error);
-    res.status(500).json({ error: 'Failed to extract text' });
-  } finally {
-    // Delete the temporary uploaded file
-    fs.unlinkSync(path);
+    console.error('Error uploading file:', error);
+    res.status(500).json({ error: 'Failed to upload file.' });
   }
 });
 

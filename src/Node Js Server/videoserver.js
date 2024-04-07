@@ -11,7 +11,7 @@ const port = 8001;
 // Enable CORS for requests from the React app
 const cors = require('cors');
 app.use(cors({
-  origin: 'http://localhost:3000' // Replace with your React app's origin
+ // origin: 'http://localhost:3000' // Replace with your React app's origin
 }));
 
 // Configure multer for handling file uploads
@@ -50,7 +50,7 @@ const splitAudioIntoSegments = async (filePath) => {
 };
 
 // POST endpoint for handling video file upload and text extraction
-app.post('/upload', upload.single('videoFile'), async (req, res) => {
+app.post('/upload-video', upload.single('videoFile'), async (req, res) => {
   const videoPath = req.file.path;
   const outputPath = path.join(__dirname, 'uploads', 'output.mp3');
 

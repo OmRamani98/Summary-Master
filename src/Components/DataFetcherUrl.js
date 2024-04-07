@@ -1,4 +1,3 @@
-// App.js
 import React, { useEffect,useState } from 'react';
 import DataFetcherText from './DataFetcherText';
 import axios from 'axios';
@@ -24,7 +23,7 @@ const DataFetcherUrl = ({ Url, sliderValue, onFetchComplete }) => {
       console.error('Invalid YouTube URL');
       return;
     }
-
+//https://summary-master-flask-url.onrender.com/getTranscript
     try {
       const response = await axios.post('https://summary-master-flask-url.onrender.com/getTranscript', { youtubeUrl: videoId });
       console.log("tt",response.data.transcript);

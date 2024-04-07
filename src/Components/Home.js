@@ -7,9 +7,19 @@ import Textchange from './TextChanger.js';
 import Footer from "./Footer.js";
 import FAQ from "./FAQ.js";
 import ChromeExtension from "./Extension.js";
-import Ft from './Ft.js';
+import Ft from './Footer1.js';
+
 
 const Home = () => {
+  const sections = [
+    { name: "Summarize Now", path: "/summarize" },
+    { name: "Browser Extensions", path: "/extensions" },
+    { name: "Features", path: "/features" },
+    { name: "FAQs", path: "/faq" }
+  ];
+  
+ 
+  
   
   const [selectedOption, setSelectedOption] = useState(null);
 
@@ -18,7 +28,7 @@ const Home = () => {
   };
 
   const scrollTo = (element, duration) => {
-    const navbarHeight = 130;
+    const navbarHeight = 180;
     const targetPosition = element.offsetTop - navbarHeight;
     const startPosition = window.pageYOffset;
     const distance = targetPosition - startPosition;
@@ -55,7 +65,7 @@ const Home = () => {
 
   return (
     <>
-    <Nav scrollToComponent={scrollToComponent}/>
+    <Nav scrollToComponent={scrollToComponent} sections={sections} />
       <Textchange  scrollToComponent={scrollToComponent}/>
       
       <div className='summary-container'>

@@ -7,6 +7,7 @@ import './App.css'
 import  History  from './Components/History.js';
 const App = () => {
   return (
+    
     <div className='App'>
    
       <Router>
@@ -21,6 +22,7 @@ const App = () => {
         </Routes>
       </Router>
     </div>
+   
   );
 };
 

@@ -18,7 +18,7 @@ const RelatedVideos = () => {
           part: 'snippet',
           q: keywords.join(' '), 
           type: 'video',
-          key: 'AIzaSyCZGkQI8NTYXA9wI5uhy0VC-qjRvsKH3WM',
+          key: 'AIzaSyALVM73q7e3p5GJHBzHi55eQRY-mnOvk-Y',
         },
       });
       console.log("hello"+response.data.items);

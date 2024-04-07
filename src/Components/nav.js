@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState} from "react";
 import { Person, Logout } from "@mui/icons-material"; // Import icons
 import {
   Button,
@@ -12,9 +12,11 @@ import "./styles/myStyles.css";
 import { useNavigate } from "react-router-dom";
 import logo from "./images/logo.png";
 import { onAuthStateChanged, getAuth, signOut } from "firebase/auth";
-import History from './History';
+
 let useremail;
 function CustomNavbar({ scrollToComponent }) {
+
+  
   const [showHistory, setShowHistory] = useState(false); // State to control showing history
   const [user, setUser] = useState(null);
   const [openDialog, setOpenDialog] = useState(false);
@@ -69,10 +71,10 @@ function CustomNavbar({ scrollToComponent }) {
             {!showHistory && (
               <>
                 <li>
-                  <a onClick={() => scrollToComponent("summarize")}>Summarize Now</a>
+                  <a onClick={() => scrollToComponent("summarize") }>Summarize Now</a>
                 </li>
                 <li>
-                  <a onClick={() => scrollToComponent("extensions")}>Browser Extensions</a>
+                  <a onClick={() => scrollToComponent("extensions")}>Extensions</a>
                 </li>
                 <li>
                   <a onClick={() => scrollToComponent("features")}>Features</a>
@@ -99,7 +101,7 @@ function CustomNavbar({ scrollToComponent }) {
                   marginRight: "1vw",
                   marginTop: "2.7vh",
                   cursor: "pointer",
-                  backgroundColor: "rgb(41, 157, 240)",
+                  backgroundColor: " #0093d1",
                 }}
                 onClick={handleDialogOpen} // Open dialog on click
               >
@@ -116,7 +118,7 @@ function CustomNavbar({ scrollToComponent }) {
                   },
                 }}
               >
-                <DialogTitle style={{ background: "#6A1B9A", color: "white" }}>
+                <DialogTitle style={{ background: "#0093d1", color: "white" }}>
                   User Options
                 </DialogTitle>
                 <DialogContent>
@@ -132,7 +134,7 @@ function CustomNavbar({ scrollToComponent }) {
                     onClick={handleSignOut}
                     color="primary"
                     variant="outlined"
-                    style={{ color: "#6A1B9A", borderColor: "#6A1B9A" }}
+                    style={{ color: "#0093d1", borderColor: "#0093d1" }}
                   >
                     <Logout style={{ marginRight: 8 }} />
                     Sign Out

@@ -29,14 +29,14 @@
   color: rgb(155, 169, 180);
   cursor: pointer;
   text-decoration: none;
-  margin-left: 1vw;
+  margin-left: 3.5vw;
 }
 .header-last {
-  margin-top: 3vh;
+  margin-top: 2.3vh;
 }
 .last-btn2 {
   background-color:#0093d1;
-  padding: 10px;
+  padding: 9px;
   font-size: 16px;
   border: none;
   border-radius: 2px;
@@ -660,18 +660,16 @@
   margin-top: 0px;
   text-align: center;
 }
-
+.contact-form{
+width: 25vw;
+padding: 0vh;
+}
 .contact-form textarea {
   resize: none;
   width: 100%;
-  padding: 0.5rem;
+  padding: 0.2rem;
   border-radius: 5px;
   border: 1px solid #666;
-}
-
-.contact-form input[type="email"],
-.contact-form textarea {
-  margin-bottom: 1rem;
 }
 
 .contact-btn {
@@ -679,7 +677,7 @@
   background-color: #0093d1;
   color: white;
   border: none;
-  padding: 0.5rem 1rem;
+  padding: 0.3rem 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
   border-radius: 5px;
@@ -688,3 +686,6 @@
 .contact-btn:hover {
   background-color: #0093d1;;
 }
+
+
+

@@ -96,9 +96,9 @@ const Summary = ({ content, contentType, onDataReceived }) => {
         <SummarizeBtn onClick={handleSummarizeClick} />
       </center>
       <center>
-        <Keywords />
+        {isSummaryVisible &&<Keywords />}
       </center>
-      <div className="custom-divider"></div>
+      {isSummaryVisible && <div className="custom-divider"></div>}
     </>
   );
 };
