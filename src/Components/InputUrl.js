@@ -35,7 +35,7 @@ const InputUrl = () => {
   const fetchVideoInfo = async (videoId) => {
     try {
       const response = await axios.get(
-        `https://www.googleapis.com/youtube/v3/videos?id=${videoId}&part=snippet&key=AIzaSyALVM73q7e3p5GJHBzHi55eQRY-mnOvk-Y `
+        `https://www.googleapis.com/youtube/v3/videos?id=${videoId}&part=snippet&key=AIzaSyALVM73q7e3p5GJHBzHi55eQRY-mnOvk-Y`
       );
 
       if (response.data.items && response.data.items.length > 0) {
